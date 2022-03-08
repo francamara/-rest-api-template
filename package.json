@@ -1,0 +1,40 @@
+{
+  "name": "rest-api-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon run index.js",
+    "lint": "eslint .",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/francamara/rest-api-template.git"
+  },
+  "keywords": [
+    "Express",
+    "PostgreSQL",
+    "Prisma"
+  ],
+  "author": "Francamaradev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/francamara/rest-api-template/issues"
+  },
+  "homepage": "https://github.com/francamara/rest-api-template#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "eslint": "^8.10.0",
+    "husky": "^7.0.4",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "prisma": "^3.10.0"
+  }
+}
