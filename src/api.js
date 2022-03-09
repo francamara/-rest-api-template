@@ -1,9 +1,18 @@
-require('dotenv').config()
+// eslint-disable-next-line
+const colors = require('colors')
 const express = require('express')
 const cors = require('cors')
+
+const pkg = require('../package.json')
 const config = require('./config/index')
 
-const basePath = '/api'
+require('dotenv').config()
+
+// const version = pkg.version
+
+const apiVersion = pkg.version.split('.')
+
+const basePath = `/api/v${apiVersion[0]}`
 
 const api = express()
 
@@ -29,5 +38,5 @@ api.use(express.urlencoded({ extended: true }))
 api.use(basePath, require('./routes'))
 
 api.listen(config.port, () => {
-  console.log(`SERVER on http://localhost:${config.port} in ${config.env}`)
+  console.log(`SERVER: UP \nPORT: http://localhost:${config.port}\nNODE_ENV: ${config.env}`.bold.cyan)
 })
