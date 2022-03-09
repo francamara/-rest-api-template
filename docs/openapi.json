@@ -6,11 +6,71 @@
     "version": "1.0.0"
   },
   "servers": [
+    {
+      "url": "http://localhost:{PORT}{basePath}",
+      "description": "Local",
+      "variables": {
+        "PORT": {
+          "default": "3000"
+        },
+        "basePath": {
+          "default": "/api/v1"
+        }
+      }
+    }
   ],
   "tags": [
+    {
+      "name": "Healthcheck",
+      "description": "Server Healthcheck"
+    }
   ],
   "paths": {
+    "/healthcheck": {
+      "get": {
+        "tags": [
+          "Healthcheck"
+        ],
+        "responses": {
+          "200": {
+            "description": "Healthcheck data",
+            "content": {
+              "responseBody": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "environment": {
+                      "type": "string",
+                      "description": "development, production"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "API name"
+                    },
+                    "up": {
+                      "type": "boolean",
+                      "description": "If server == up"
+                    },
+                    "uptime": {
+                      "type": "number",
+                      "description": "Server uptime"
+                    },
+                    "server_time": {
+                      "type": "string",
+                      "description": "Time in machine format"
+                    },
+                    "api_version": {
+                      "type": "string",
+                      "description": "API Version"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   },
-  "components": {
-  }
+  "components": {}
 }
